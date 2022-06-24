@@ -207,3 +207,27 @@ Compiling variaveis v0.1.0 (/home/homenique/Data/Projetos/Rust-study/src/3.Varia
 Z is: 4
 Z is: 7
 ```
+
+
+## Name Shadowing 
+Uma forma de declarar uma variável com um mesmo nome, porém com valor diferente, em um escopo menor
+
+```Rust
+
+let a = 4;
+println!("A is: {}", a);
+{
+    let a = 5
+    println!("A is: {}", a);
+}
+let a = a + 3;
+println!("A is: {}", a);
+```
+Dessa forma temos que: 
+```bash
+A is: 4
+A is: 5
+A is: 7
+```
+
+## Constates 
