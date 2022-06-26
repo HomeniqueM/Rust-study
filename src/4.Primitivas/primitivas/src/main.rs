@@ -31,7 +31,7 @@ fn main() {
     println!("Boolean    : {}",false_or_true);
 
 
-    println!("Caracters")
+    println!("Caracters");
 
     let letter = 'a';
     let number:char = '0';
