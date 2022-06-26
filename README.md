@@ -1,10 +1,10 @@
 # Estudo de Rush
 
 ## Sumário
-1. [Sobre Rust](#sobre-rust)
-2. [Instalação em Linux](#instalação-do-rust-no-linux-arch)
-3. [Escrevendo código em Rust](#escrevendo-código-em-rust)
-   1. [Como exercultar um código é Rust](#como-exercultar-um-código-é-rust)
+- [Sobre Rust](#sobre-rust)
+- [Instalação em Linux](#instalação-do-rust-no-linux-arch)
+- [Escrevendo código em Rust](#escrevendo-código-em-rust)
+   - [Como exercultar um código é Rust](#como-exercultar-um-código-é-rust)
 
 ____
 ## Sobre Rust
@@ -240,9 +240,9 @@ A is: 7
 ```
 
 ## Constates 
-Diferente de uma variáveis em rust que mesmo não podendo ser alteradas podem ser ou sobrescritas ou caso seja adicionado um modificador __mut__ podendo ser alteradas, uma constante como o próprio nome diz ela é constante e imutável uma vez definida o seu valor nem seu tipo podem mudar duram toda a exercução do programa. 
+Diferente de uma variáveis em rust que mesmo não podendo ser alteradas podem ser ou sobrescritas ou caso seja adicionado um modificador `mut` podendo ser alteradas, uma constante como o próprio nome diz ela é constante e imutável uma vez definida o seu valor nem seu tipo podem mudar duram toda a exercução do programa. 
 
-Uma conversão quando é definido uma constante é usar ela toda em letras maiúsculas e usar um Underline __(_)__ como separador 
+Uma conversão quando é definido uma constante é usar ela toda em letras maiúsculas e usar um Underline `_` como separador 
 
 ```Rust
 
@@ -251,4 +251,85 @@ const SECONDS_IN_MINUTE: u32 = 60;
 Além disso assim que é definido uma constante é necessário atribuir um tipo e também um valor a variável 
 
 
-# Primitavas ( Primite data Types)
+# Primitivas ( Primite data Types)
+
+Uma primitiva é a estrutura mais simples que uma linguagem consegue representar e a partir delas podemos criar estruturas mais complexas.
+
+
+Rust possui duas categorias de primitivas, __Scalar type__ e __compound__. 
+
+Scalar data Type:
+
+    Um tipo de dado escalar é algo que possui um conjunto finito de valores possíveis, seguindo alguma escala, ou seja, cada valor pode ser comparado a qualquer outro valor como igual, maior ou menor. Sendo eles: 
+- integer (uint, int)
+- floating-point
+- boolean
+- charecter/char
+
+Compound data Type:
+
+    Um tipo de dados composto é qualquer tipo de dados que pode ser construído em um programa usando os tipos de dados primitivos da linguagem de programação e outros tipos compostos. e em Rust temos :
+
+- tuple
+- array
+Como já dito, em Rust você pode definir implicitamente o tipo deixando para o compilador decidir qual o tipo da variável.
+
+```rust
+// Aqui o compilador vai usar Integer
+ let x = 10;
+``` 
+
+
+Porém, o tipo da variável pode ser definido explicitamente 
+
+```rust
+// Aqui eu estou explicitamente definido que o x é um Integer de 32 bits
+ let x:i32 = 2;
+``` 
+Nessa definição temos dois pontos o `i` que indica que essa variável é um Inteiro com sinal e `32` para indicar o número de bits que ela vai utilizado para armazenar e representar aquele valor. 
+
+
+__Obs__: 32bits é o valor padrão para um inteiro em Rust
+
+Em Rust também é possível utilizar valores inteiro não negativos chamados de unsigned que a declaração é similar ao integer só que em vez de usar `i` vai ser utilizado `u` 
+
+### Integer Types
+
+Essa são as formas de declaração de inteiros
+
+| Tamanho | Com Sinal | Sem Sinal |
+|---------|-----------|-----------|
+| 8-bit   | i8        | u8        |
+| 16-bit  | i16       | u16       |
+| 32-bit  | i32       | u32       |
+| 64-bit  | i64       | u64       |
+| 128-bit | i128      | u128      |
+| arch    | isize     | usize     |
+
+Os tipos `isize` e `usize` dependem da arquitetura do
+computador em que seu programa está sendo executado, que é indicado na tabela como “arch”:
+64 bits se você estiver em uma arquitetura de 64 bits e 32 bits se estiver em uma arquitetura de 32 bits
+arquitetura.
+
+Você pode escrever literais inteiros em qualquer uma das formas mostradas a seguir. 
+
+Observação: que os literais numéricos que podem ser vários tipos numéricos permitem um sufixo de tipo,
+como `57u8`, para designar o tipo. Os literais numéricos também podem usar `_` como
+separador visual para facilitar a leitura do número, como `1_000`, que
+têm o mesmo valor como se você tivesse especificado `1000`.
+
+
+| Number literals  | Example       |
+|------------------|---------------|
+| Decimal          | `98_222`      |
+| Hex              | `0xff`        |
+| Octal            | `0o77`        |
+| Binary           | `0b1111_0000` |
+| Byte (`u8` only) | `b'A'`        |
+
+
+### Floating-Point Types
+| Tamanho | Represetação |
+|---------|--------------|
+| 32-bit  | f32          |
+| 64-bit  | f64          |
