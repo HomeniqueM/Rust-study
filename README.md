@@ -319,17 +319,46 @@ separador visual para facilitar a leitura do número, como `1_000`, que
 têm o mesmo valor como se você tivesse especificado `1000`.
 
 
-| Number literals  | Example       |
-|------------------|---------------|
-| Decimal          | `98_222`      |
-| Hex              | `0xff`        |
-| Octal            | `0o77`        |
-| Binary           | `0b1111_0000` |
-| Byte (`u8` only) | `b'A'`        |
+| Number literals    | Example       |
+|--------------------|---------------|
+| Decimal            | `98_222`      |
+| Hex                | `0xff`        |
+| Octal              | `0o77`        |
+| Binary             | `0b1111_0000` |
+| Byte (apenas `u8`) | `b'A'`        |
 
 
 ### Floating-Point Types
+Rust também tem dois tipos primitivos para números de ponto flutuante , que são números com pontos decimais. Os tipos de ponto flutuante do Rust são `f32` e `f64`, que têm 32 bits e 64 bits de tamanho, respectivamente.
+
 | Tamanho | Represetação |
 |---------|--------------|
 | 32-bit  | f32          |
 | 64-bit  | f64          |
+
+
+
+### Booleano
+
+Como na maioria das outras linguagens de programação, um tipo booleano em Rust tem dois valores possíveis: `true` e `false`. Booleanos têm um byte de tamanho. O tipo booleano em Rust é especificado usando `bool`. Por exemplo:
+
+```Rust
+
+fn main() {
+    let true_or_false = true;
+
+    let true_or_false: bool = false; // with explicit type annotation
+}
+
+```
+
+### Characters
+
+O tipo de Rust `char` é o tipo alfabético mais primitivo da linguagem. Veja alguns exemplos de declaração de charvalores:
+
+```Rust
+fn main() {
+    let letter = 'a';
+    let number:char = '0';
+}
+```
