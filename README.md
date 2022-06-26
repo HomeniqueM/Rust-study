@@ -1,5 +1,14 @@
 # Estudo de Rush
 
+## Sumário
+1. [Sobre Rust](#sobre-rust)
+2. [Instalação em Linux](#instalação-do-rust-no-linux-arch)
+3. [Escrevendo código em Rust](#escrevendo-código-em-rust)
+   1. [Como exercultar um código é Rust](#como-exercultar-um-código-é-rust)
+
+____
+## Sobre Rust
+
 - Fortemente Tipada 
 - Linguagem compilada 
 - Rapida e confiável 
@@ -26,7 +35,7 @@ Caso aparece varias opções deu tudo certo na instalação
 
 A extersão usada para os arquivos rust é:  __.rs__ 
 
-## Rodar o código 
+## Como exercultar um código é Rust 
 
 ```bash
 rustc nomeDoArquivo.rs
@@ -231,3 +240,15 @@ A is: 7
 ```
 
 ## Constates 
+Diferente de uma variáveis em rust que mesmo não podendo ser alteradas podem ser ou sobrescritas ou caso seja adicionado um modificador __mut__ podendo ser alteradas, uma constante como o próprio nome diz ela é constante e imutável uma vez definida o seu valor nem seu tipo podem mudar duram toda a exercução do programa. 
+
+Uma conversão quando é definido uma constante é usar ela toda em letras maiúsculas e usar um Underline __(_)__ como separador 
+
+```Rust
+
+const SECONDS_IN_MINUTE: u32 = 60;
+```
+Além disso assim que é definido uma constante é necessário atribuir um tipo e também um valor a variável 
+
+
+# Primitavas ( Primite data Types)
