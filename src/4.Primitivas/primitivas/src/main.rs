@@ -1,12 +1,13 @@
 fn main() {
     println!("Primitivas!");
 
+    println!("Scalar data Type");
     println! ("Integer");
     let dec: i32 = 98_222;
     let hex: i32 = 0xff;
     let oct: i32 = 0o77;
     let bin: i32 = 0b1111_0000;
-    let by: u8 = b'A';
+    let by:   u8 = b'A';
 
 
     println!("Decimal    : {}",dec);
@@ -37,4 +38,7 @@ fn main() {
     let number:char = '0';
     println!("letter    : {}",letter);
     println!("number    : {}",number);
+
+
+    println!("Compound data Type");
 }

@@ -258,21 +258,13 @@ Uma primitiva é a estrutura mais simples que uma linguagem consegue representar
 
 Rust possui duas categorias de primitivas, __Scalar type__ e __compound__. 
 
-Scalar data Type:
 
+## Scalar data Type
     Um tipo de dado escalar é algo que possui um conjunto finito de valores possíveis, seguindo alguma escala, ou seja, cada valor pode ser comparado a qualquer outro valor como igual, maior ou menor. Sendo eles: 
 - integer (uint, int)
 - floating-point
 - boolean
 - charecter/char
-
-Compound data Type:
-
-    Um tipo de dados composto é qualquer tipo de dados que pode ser construído em um programa usando os tipos de dados primitivos da linguagem de programação e outros tipos compostos. e em Rust temos :
-
-- tuple
-- array
-Como já dito, em Rust você pode definir implicitamente o tipo deixando para o compilador decidir qual o tipo da variável.
 
 ```rust
 // Aqui o compilador vai usar Integer
@@ -362,3 +354,14 @@ fn main() {
     let number:char = '0';
 }
 ```
+Observe que os chars literais são declarados com aspas simples, em oposição a literais de string, que usam aspas duplas. 
+
+O tipo `char` tem quatro bytes de tamanho e representa um valor escalar Unicode, o que significa que pode representar muito mais do que apenas ASCII. 
+
+
+## Compound data Type
+    Um tipo de dados composto é qualquer tipo de dados que pode ser construído em um programa usando os tipos de dados primitivos da linguagem de programação e outros tipos compostos. e em Rust temos :
+
+- tuple
+- array
+Como já dito, em Rust você pode definir implicitamente o tipo deixando para o compilador decidir qual o tipo da variável.
