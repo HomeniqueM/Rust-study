@@ -41,4 +41,22 @@ fn main() {
 
 
     println!("Compound data Type");
+    
+    println!("Tuples");
+
+    let tup:(i32,bool,char) = (1,true,'S');
+    
+    // Tuples diferentes, não podem se relacionar
+    let tup2:(i8,bool,char) = (1,true,'S');
+
+    println!("{}",tup.0);
+    println!("{}",tup.1);
+
+    println!("{}",tup2.2);
+
+    // Fazer uma tuples mutavel 
+    let mut tup:(i32,bool,char) = (1,true,'S');
+    tup.0 = 10;
+
+    println!("{}",tup.0);
 }
