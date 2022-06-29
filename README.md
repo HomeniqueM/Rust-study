@@ -365,3 +365,78 @@ O tipo `char` tem quatro bytes de tamanho e representa um valor escalar Unicode,
 - tuple
 - array
 Como já dito, em Rust você pode definir implicitamente o tipo deixando para o compilador decidir qual o tipo da variável.
+
+
+### Tuple 
+
+De Forma Simples podemos dizer que uma tupula é uma estrutura que suporta varios tipos de valores 
+
+Por exemplo podemos criar uma tupula desta forma
+
+```Rust
+fn main() {
+   // Desta forma estamos explicitado os tipos
+    let tup:(i32,bool,char) = (1,true,'S');
+}
+
+```
+A variável `tup` liga-se a tupla, porque uma tupla é considerada um único elemento composto. Para pegar os valores da tupla individualmente, podemos usar a correspondência de padrões para desestruturar o valor de uma tupla, como este:
+
+```Rust
+fn main( ){
+     let tup:(i32,bool,char) = (1,true,'S');
+     let i,b,c = tup;
+     println!("O valor do c é: {}", c);
+
+}
+```
+
+Além de desestruturar através da correspondência de padrões, podemos acessar diretamente um elemento da tupla usando um ponto (`.`) como índice do valor que queremos acessar. Por exemplo:
+
+```rust 
+    let tup:(i32,bool,char) = (1,true,'S');
+    println!("{}",tup.0);
+    println!("{}",tup.1);
+```
+
+Alguns pontos importante que devemos falar antes de seguir em frente:
+
+A vida de uma tupula é igual a uma variavel, caso não seja adicionado o modificador de mutabilidade `mut`
+```Rust
+    let tup:(i32,bool,char) = (1,true,'S');
+    tup.0 = 10;
+```
+o erro que vamos obter:
+
+```Bash 
+error[E0594]: cannot assign to `tup.0`, as `tup` is not declared as mutable
+  --> src/main.rs:59:5
+   |
+58 |     let tup:(i32,bool,char) = (1,true,'S');
+   |         --- help: consider changing this to be mutable: `mut tup`
+59 |     tup.0 = 10;
+   |     ^^^^^^^^^^ cannot assign
+```
+então para resolver esse problema basta adicioar o modificador de mutabilidade.
+
+```rust
+    let mut tup:(i32,bool,char) = (1,true,'S');
+    tup.0 = 10;
+
+    println!("{}",tup.0);
+```
+
+Outra situação é são tupalas parecidas mas são diferentes
+
+
+```Rust
+fn main (){
+
+    let tup:(i32,bool,char) = (1,true,'S');
+    
+    // Tuples diferentes, não podem se relacionar
+    let tup2:(i8,bool,char) = (1,true,'S');
+}
+```
+
+## Matriz
