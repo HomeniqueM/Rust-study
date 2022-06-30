@@ -440,3 +440,75 @@ fn main (){
 ```
 
 ## Matriz
+Diferente de uma tupula um array suporta somente um tipo dentro de sua estrutura  
+
+```Rust
+fn main(){
+	// Para iniciar um array
+	let arr = [ 1, 2, 3, 4, 5];
+	
+// Acessar o primeiro valor do Array
+
+arr[0];
+
+// Acessar o terceiro
+arr[2];
+}
+```
+
+  Como podemos ver no exemplo, podemos acessar os valores do array do array através do uso de colchetes ‘[ ]’.
+
+ Diferente de outras linguagens programação não é possível adicionar novos valores ao array, é necessário reescrever o array com um tamanho de alocação maior, além das mesma regras de mutação vales para o array 
+
+
+Como caveiras e tupulas é possível definir o array de forma explícita de algumas maneiras diferentes
+
+```Rust
+fn main(){
+	// Para iniciar um array
+	le mut arr [i32;5] = [ 1, 2, 3, 4, 5];
+	
+}
+```
+Desta forma temos definido um array de `i32` com tamanho 5 e já definido os valores para cada posição 
+
+podemos também iniciar desta forma
+
+```Rust
+fn main(){
+	// Para iniciar um array
+	le mut arr [i32;5] ;
+}
+```
+
+Podemos iniciar desta forma onde igual ao exemplo anterior vamos ter um array de de `i32` com tamanho 5 porém com nenhum valor iniciado, desta forma caso tentamos mostrar algum valor teremos um erro do compilador.
+
+
+
+outro cenário que irá mostrar erro é caso seja atribuindo um colchete vazio para um array 
+```Rust
+fn main(){
+	// Irá apresentar error 
+	le mut arr [i32;5]  = [ ];
+}
+```
+
+  Para mostramos todos os valores de um array diferente de outras linguagem não podemos simplesmente colocar dentro da função de print
+
+```Rust
+fn main(){
+	// Irá apresentar error 
+	le mut arr [i32;5]  = [ ];
+   	println!("{}",arr);
+}
+```
+
+isso vai gerar outro erro de compilação, é necessário indicar qual posição vai ser printanda do array
+
+```Rust
+fn main(){
+	// Irá apresentar error 
+	le mut arr [i32;5]  = [ ];
+   	println!("{}",arr[0]);
+}
+```

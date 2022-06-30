@@ -59,4 +59,9 @@ fn main() {
     tup.0 = 10;
 
     println!("{}",tup.0);
+
+    println!("Matrix");
+    let mut arr :[i32;5] = [ 1, 2, 3, 4, 5];
+
+    println!("{}",arr[3]);
 }
