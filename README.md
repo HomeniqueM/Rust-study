@@ -512,3 +512,56 @@ fn main(){
    	println!("{}",arr[0]);
 }
 ```
+___
+## Console Input 
+Na linguagem Rust existem alguns pacotes e funções que já vem como padrão conhecidos como __prelude__. Porém o user input não está incluindo nesse __prelude__, e é necessários importar esse pacote que em rust, todo pacote e ou biblioteca em rust é denominado  `crate`. Dentro desse `crete` temos módulos que são funcionalidades específicas   
+
+
+Por exemplo vamos usar `IO modulo`  para input do usuário:
+
+``` Rust
+use std::io; 
+
+```
+
+O que está acontecendo na primeira linha é você está importando o módulo `IO` da biblioteca (crate) std ( standard library) 
+
+### Pegando  Input do usuário
+
+
+``` Rust
+use std::io; 
+
+fn main (){
+     let mut input = String::new();
+}
+```  
+Para fazer uma leitura de usuário uma variável necessariamente tem que ser mutável, além disso neste exemplo vemos que estamos chamando o módulo new para instanciar uma nova string 
+
+
+Para coletar a entrada 
+
+``` Rust
+use std::io; 
+
+fn main (){
+     let mut input = String::new();
+
+    io::stdin().read_line(&mut  input).expect("failed to read line");
+
+    println!("{}", input);
+}
+```  
+
+Ok, está acontecendo muitas coisas nessa operação, vamos tentar entender por partes 
+
+- ` io::stdin().read_line(` : Basicamente, estamos aqui a partir do módulo de `IO` estamos chamando a função de readline.
+- `&mut  input` : quando estamos passando por parâmetro uma variável, estamos na verdade criando uma cópia da mesma para ser alterada dentro da função que não afeta a variável original, por isso usamos o operador `&` para enviar uma referência da variável, porém em rust referências não podem ser alterada a não ser que tenho o modificador `mut` .
+
+Desta forma estamos enviando uma referência de onde está a variável e tornamos essa referência mutável. 
+
+- `.expect(“failed to read line”);` : caso aconteça algum erro durante a leitura do input vai ser enviado a mensagem definida por nós, no caso  ‘failed to read line’
+
+  
+
+
