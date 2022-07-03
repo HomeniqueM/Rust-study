@@ -562,6 +562,6 @@ Desta forma estamos enviando uma referência de onde está a variável e tornamo
 
 - `.expect(“failed to read line”);` : caso aconteça algum erro durante a leitura do input vai ser enviado a mensagem definida por nós, no caso  ‘failed to read line’
 
-  
+## OPperações Aritméticas e Type Casting  
 
 
