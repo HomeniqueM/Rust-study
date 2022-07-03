@@ -732,4 +732,32 @@ fn main(){
     println!("Resultado: {} ",z);
 }
 ```
-Em geral sempre que for fazer uma conversão de um tipo para outro, sempre dê preferência para alterar o menor tipo para o maior ,pois isso evita possíveis perda de informação 
+Em geral sempre que for fazer uma conversão de um tipo para outro, sempre dê preferência para alterar o menor tipo para o maior ,pois isso evita possíveis perda de informação ou pior, um buffer overflow. Onde você estoura o limite da variável.
+
+```Rust
+// buffer overflow
+let x = (i32::MAX as i64) +1;
+let y = 10_i32;
+
+let z = (x as i32)/y;
+
+println!(z);
+```
+
+
+### converter uma string em uma
+
+```rust
+    let mut input = String::new();
+
+    io::stdin().read_line(&mut input).expect("expected to read line");
+    let int_input:i64 = input.trim().parse().unwrap();
+
+    println!("lido: {}", input)
+
+
+```
+
+- `trim()`
+- `parse()`
+- `unwrap()`

@@ -1,3 +1,6 @@
+
+use std::io;
+
 fn main() {
 
     println!("Operações: ");
@@ -40,6 +43,15 @@ fn main() {
 
     let z = (x as i32)/y;
 
-    println!(z);
+    println!("{}",z);
+
+    println!("Type Casting String para um valor numerico ");
+
+    let mut input = String::new();
+
+    io::stdin().read_line(&mut input).expect("expected to read line");
+    let int_input:i64 = input.trim().parse().unwrap();
+
+    println!("lido: {}", input)
 
 }
