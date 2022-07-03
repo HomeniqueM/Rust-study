@@ -576,6 +576,9 @@ fn main() {
     println!("{}",z);
 }
 ```
+
+No terminal vamos ter que o resultado desta operação é `25`, ou seja foi descartado o decimal, pois o tipo `u8` não suporta valores com ponto flutuante.  
+
 Por padrão Rust suporta 5 operações básicas aritméticas  
 
 ``` Rust
@@ -597,9 +600,6 @@ fn main() {
     let remainder = 43 % 5;
 }
 ```
-
-
-No terminal vamos ter que o resultado desta operação é `25`, ou seja foi descartado o decimal, pois o tipo `u8` não suporta valores com ponto flutuante.  
 ### Possíveis erros em operações aritméticas 
 Caso tentamos fazer operações com tipos inteiros com aplituidade diferentes como um `u8` somando com um `i8`
 
@@ -612,7 +612,6 @@ fn main() {
     println!("{}",z);
 }
 ```
-
 Vamos obter esse erro: 
 ```bash 
 error[E0308]: mismatched types
@@ -684,3 +683,53 @@ error: could not compile `arithmetic` due to previous error
 ```
 
 Novamente a solução vai ser fazer um cast para um tipo maior que vá caber este valor
+
+
+## Type Casting
+
+Type casting é o ato de converter um tipo em outro
+uma maneira bem simples de fazer isso é apos o valor informar o tipo 
+
+```rust
+fn main() {
+    let x = 255.0 f32;
+    let y = 1.0 f32; 
+    let z = x + y;
+    println!("{}",z);
+}
+```
+uma segunda maneira de fazer o type casting após o valor você ultilizar `_` e após isso o tipo:
+
+```rust
+fn main() {
+    let x = 127_i8;
+    let y = 10_i8; 
+    let z = x + y;
+    println!("{}",z);
+}
+```
+
+A terceira maneira de fazer um type casting é em vez de usar o underline `_` é utilizar a palavra reservada `as` 
+```rust
+fn main() {
+    let x = 127_000 as i64;
+    let y = 10 as i64; 
+    let z = x + y;
+    println!("{}",z);
+}
+```
+
+outro exemplos 
+
+```rust
+fn main(){
+    let x = 127_000 as i64;
+    let y = 12_i32;
+    println!("x: {} ",x);
+    println!("y: {} ",y);
+
+    let z = x/(y as i64);
+    println!("Resultado: {} ",z);
+}
+```
+Em geral sempre que for fazer uma conversão de um tipo para outro, sempre dê preferência para alterar o menor tipo para o maior ,pois isso evita possíveis perda de informação 
