@@ -745,7 +745,7 @@ println!(z);
 ```
 
 
-### converter uma string em uma
+### converter uma string em um valor numerico 
 
 ```rust
     let mut input = String::new();
@@ -757,7 +757,70 @@ println!(z);
 
 
 ```
-
+Explicar essa parte 
 - `trim()`
 - `parse()`
 - `unwrap()`
+
+
+## Condicionais e estruturas de controle 
+Rust possui operadores relacionais bem comuns em outras linguagens tais como 
+
+- `>` : maior que
+- `<` : menor que
+- `>=`: maior ou igual
+- `<=`: menor ou igual
+- `!=` : diferente de 
+- `==`: igual a 
+
+Um ponto importante é que em todas as comparações é necessários que os valores sejam do mesmo tipo para não haver um erro de compilação 
+
+```rust
+fn main( ){ 
+    let cond = 2 <= 2.2;
+    println!("{}",cond);
+}
+```
+
+Uma forma que podemos corrigir esse problema é convertendo o tipo de um dos valores para o outro
+
+```rust
+fn main( ){ 
+    let cond = (2 as f32) <= 2.2;
+    println!("{}",cond);
+}
+```
+
+Além disso em Rust também temos os operadores lógicos 
+
+- and : `&&`
+- or : `||`
+- not: `!`
+
+uso de `if`
+
+```rust
+fn main( ){ 
+    let fond = "cookie";
+    
+    if fond == "cookie" { 
+        println!("I like cookies too!");
+    }
+}
+```
+
+uso de `if`, `else` e `else if`
+
+```rust
+fn main( ){ 
+    let fond = "cookie";
+
+    if fond == "cookie" {
+        println!("I like cookies too!");
+    } else if food == "fruit" {
+        println!("That sounds healthy!");
+    } else {
+        println!("oh, that's too bad!");
+    }
+}
+```
