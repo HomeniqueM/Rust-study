@@ -562,6 +562,125 @@ Desta forma estamos enviando uma referência de onde está a variável e tornamo
 
 - `.expect(“failed to read line”);` : caso aconteça algum erro durante a leitura do input vai ser enviado a mensagem definida por nós, no caso  ‘failed to read line’
 
-## OPperações Aritméticas e Type Casting  
+## Operações Aritméticas e Type Casting  
+ Um ponto muito importante em operações aritméticas em Rust é que o resultado de cada operação vai ser igual ao tipo do valores que são fatores da operação 
 
 
+por exemplo se fizermos a divisão de dois valores inteiro o resultado é um valor inteiro 
+```rust
+fn main() {
+    let x: u8 = 255; // 0 - 255
+    let y: u8 = 10; // 0 - 255
+
+    let z = x / y;
+    println!("{}",z);
+}
+```
+Por padrão Rust suporta 5 operações básicas aritméticas  
+
+``` Rust
+fn main() {
+    // Adição
+    let sum = 5 + 10;
+
+    // Subtração
+    let difference = 95.5 - 4.3;
+
+    // Multiplicação
+    let product = 4 * 30;
+
+    // Divisão
+    let quotient = 56.7 / 32.2;
+    let floored = 2 / 3; // Results in 0
+
+    // módulo (Resto da divisão)
+    let remainder = 43 % 5;
+}
+```
+
+
+No terminal vamos ter que o resultado desta operação é `25`, ou seja foi descartado o decimal, pois o tipo `u8` não suporta valores com ponto flutuante.  
+### Possíveis erros em operações aritméticas 
+Caso tentamos fazer operações com tipos inteiros com aplituidade diferentes como um `u8` somando com um `i8`
+
+```rust
+fn main() {
+    let x: u8 = 9; // 0 - 255
+    let y: i8 = 10; // -128 -127
+
+    let z = x + y;
+    println!("{}",z);
+}
+```
+
+Vamos obter esse erro: 
+```bash 
+error[E0308]: mismatched types
+ --> src/main.rs:5:17
+  |
+5 |     let z = x + y;
+  |                 ^ expected `u8`, found `i8`
+
+error[E0277]: cannot add `i8` to `u8`
+ --> src/main.rs:5:15
+  |
+5 |     let z = x + y;
+  |               ^ no implementation for `u8 + i8`
+  |
+  = help: the trait `Add<i8>` is not implemented for `u8`
+
+Some errors have detailed explanations: E0277, E0308.
+For more information about an error, try `rustc --explain E0277`.
+error: could not compile `arithmetic` due to 2 previous errors
+```
+a mesma coisa vai acontecer quando o número de bits for diferente, o mesmo erro de não ter um operação implementada 
+
+```rust
+fn main() {
+    let x: i8 = 9;
+    let y: i64 = 10;
+
+    let z = x + y;
+    println!("{}",z);
+}
+```
+Esse problema também ocorre com os floats 
+
+ ```rust
+fn main() {
+    let x: f32 = 9.0;
+    let y: f64 = 10.0;
+
+    let z = x + y;
+    println!("{}",z);
+}
+```
+Para essas situações, uma forma de resolver esse problema é converter esse valores para o mesmo tipo.
+
+
+Outro erro que podem acontecer é você tentar somar dois literais que vão estourar o limite de uma variável 
+```rust
+fn main() {
+    let x: u8 = 255; // 0 - 255
+    let y: u8 = 1; // 0 - 255
+
+    let z = x + y;
+    println!("{}",z);
+}
+```
+
+O compilador irá te devolver esse erro, indicando que você estourou o limite da variável 
+
+```bash
+error: this arithmetic operation will overflow
+ --> src/main.rs:5:13
+  |
+5 |     let z = x + y;
+  |             ^^^^^ attempt to compute `u8::MAX + 1_u8`, which would overflow
+  |
+  = note: `#[deny(arithmetic_overflow)]` on by default
+
+error: could not compile `arithmetic` due to previous error
+```
+
+Novamente a solução vai ser fazer um cast para um tipo maior que vá caber este valor
