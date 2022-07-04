@@ -1,6 +1,62 @@
 use std::io;
 
-fn main() {
+fn variaveis() {
+    // Maneira um
+    println!("Instacia 01");
+
+    let mut x = 4;
+    println!("X is: {}", x);
+
+    x = 5;
+    println!("X is: {}", x);
+
+    // Maneira dois
+    println!("Instacia 02");
+
+    let n = 4;
+    println!("N is: {}", n);
+
+    let n = 5;
+    println!("N is: {}", n);
+
+    // Exemplo 3
+    println!("Instacia 03");
+
+    let z = 4;
+    println!("Z is: {}", z);
+
+    let z = z + 3;
+    println!("Z is: {}", z);
+
+    // Name Shadowing exemplo
+    println!("Name Shadowing exemplo");
+    let a = 4;
+    println!("A is: {}", a);
+    {
+        let a = 5;
+        println!("A is: {}", a);
+    }
+    let a = 3;
+    println!("A is: {}", a);
+
+    {
+        let a = a-1;
+        println!("A is: {}", a);
+    }
+
+    let a = a+2;
+    println!("A is: {}", a);
+}
+
+fn consoleInput(){
+    let mut input = String::new();
+
+    io::stdin().read_line(&mut input).expect("failed to read line");
+
+    println!("{}", input);
+}
+
+fn aritmeticas() {
     println!("Operações: ");
     let x = 255.0; // 0 - 255
     let y = 10.0; // 0 - 255
@@ -56,13 +112,19 @@ fn main() {
 
     println!("Condicionais");
 
-    let fond = "cookie";
+    let food = "cookie";
 
-    if fond == "cookie" {
+    if food == "cookie" {
         println!("I like cookies too!");
     } else if food == "fruit" {
         println!("That sounds healthy!");
     } else {
         println!("oh, that's too bad!");
     }
+}
+
+
+fn main() {
+    println!("Hello, Bem vindo ao meu projeto de estudo de Rust!");
+    variaveis();
 }
